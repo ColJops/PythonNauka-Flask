@@ -1,16 +1,15 @@
-from flask import Flask
-from flask import request
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<h1>Witaj, świecie!</h1>'
+    return render_template('index.html')
 
 @app.route('/user/<name>')
 def user(name):
     user_agent = request.headers.get('User-Agent')
-    return '<h1>Witaj, {}!</h1><br><h2>Twoją przeglądarką jest {}.'.format(name, user_agent)
+    return render_template('user.html', name=name, user_agent=user_agent)
 
 if __name__ == '__main__':
     app.run(
