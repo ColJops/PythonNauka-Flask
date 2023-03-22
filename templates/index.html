@@ -12,6 +12,11 @@
 <hr>
 <div>
     <h3>Witaj, {% if name %}{{ name }}{% else %}nieznajomy{% endif %}!</h3>
+    {% if not know %}
+    <p>Miło Cię poznać!</p>
+    {% else %}
+    <p>Miło Cię znów widzić!</p>
+    {% endif %}
     {{ wtf.quick_form(form) }}
 </div>
 {% endblock %}
