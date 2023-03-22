@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}Flasky{% endblock%} 
 
@@ -8,6 +9,11 @@
 <hr>
 <p>Lokalna data i czas: {{ moment(current_time).format('LLL') }}.</p>
 <p>To było {{ moment(current_time).fromNow(refresh=True) }}</p>
+<hr>
+<div>
+    <h3>Witaj, {% if name %}{{ name }}{% else %}nieznajomy{% endif %}!</h3>
+    {{ wtf.quick_form(form) }}
+</div>
 {% endblock %}
 
 {% block scripts %}
