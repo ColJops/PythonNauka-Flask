@@ -6,10 +6,7 @@
 {% block page_content %}
 
 <h1>Witaj, świecie!</h1>
-<hr>
-<p>Lokalna data i czas: {{ moment(current_time).format('LLL') }}.</p>
-<p>To było {{ moment(current_time).fromNow(refresh=True) }}</p>
-<hr>
+
 <div>
     <h3>Witaj, {% if name %}{{ name }}{% else %}nieznajomy{% endif %}!</h3>
     {% if not know %}
@@ -22,7 +19,4 @@
 {% endblock %}
 
 {% block scripts %}
-{{ super() }}
-{{ moment.include_moment() }}
-{{ moment.locale('pl') }}
 {% endblock %}
